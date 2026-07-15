@@ -1,9 +1,8 @@
 name: CI/CD Pipeline
 
 on:
+  workflow_dispatch:
   push:
-    branches: ["main"]
-  pull_request:
     branches: ["main"]
 
 env:
@@ -49,7 +48,7 @@ jobs:
           docker build -t ghcr.io/${IMAGE_NAME,,}:latest .
           docker push ghcr.io/${IMAGE_NAME,,}:latest
 
-      - naame: Run the application
+      - name: Run the application
         run: |
           ssh ec2-user@ec2-35-159-18-159.eu-central-1.compute.amazonaws.com
           docker run -p 8080:8080 alwazery/alwazery:falskappv7.0.0
