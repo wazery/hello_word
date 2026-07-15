@@ -12,7 +12,7 @@ class HelloTestCase(unittest.TestCase):
     def test_hello_json_content(self):
         response = self.client.get('/api/hello')
         data = response.get_json()
-        self.assertEqual(data, {"message": "hello world", "status": "ok"})
+        self.assertEqual(data, {"message": "hello world 2", "status": "ok"})
 
 if __name__ == '__main__':
     unittest.main()
