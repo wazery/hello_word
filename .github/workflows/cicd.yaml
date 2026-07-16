@@ -9,10 +9,13 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   AWS_REGION: eu-central-1          # change if your ECR repo is in another region
   ECR_REPOSITORY: alwazery/alwazery # your ECR repo name
-
+  
 jobs:
   ci:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
