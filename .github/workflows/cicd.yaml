@@ -13,9 +13,6 @@ env:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -37,6 +34,9 @@ jobs:
   cd:
     needs: ci
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
